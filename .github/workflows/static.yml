@@ -23,3 +23,7 @@ jobs:
       
       - name: Build project
         run: yarn build
+
+      - name: test
+        with:
+          path: './dist'
