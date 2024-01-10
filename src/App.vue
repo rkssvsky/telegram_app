@@ -1,5 +1,9 @@
 <script setup>
 import HelloWorld from './components/HelloWorld.vue'
+let tg = window.Telegram.WebApp
+
+
+
 </script>
 
 <template>
@@ -12,6 +16,11 @@ import HelloWorld from './components/HelloWorld.vue'
     </a>
   </div>
   <HelloWorld msg="Vite + Vue" />
+
+  {{ tg.initDataUnsafe.user.first_name }}
+
+  <button @click="tg.close()">Закрыть окно</button>
+
 </template>
 
 <style scoped>
