@@ -19,6 +19,8 @@ let tg = window.Telegram.WebApp
 
   {{ tg }}
 
+  <input type="text" :value="JSON.stringify(tg)">
+
   <button @click="tg.close()">Закрыть окно</button>
   1
 
