@@ -8,6 +8,7 @@
     "build": "vite build",
     "preview": "vite preview"
   },
+  "homepage": "https://rkssvsky.github.io/telegram_app/dist",
   "dependencies": {
     "vue": "^3.3.4"
   },
