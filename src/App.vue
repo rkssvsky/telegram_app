@@ -17,7 +17,7 @@ let tg = window.Telegram.WebApp
   </div>
   <HelloWorld msg="Vite + Vue" />
 
-  {{ tg.initDataUnsafe.user.first_name }}
+  {{ tg }}
 
   <button @click="tg.close()">Закрыть окно</button>
   1
