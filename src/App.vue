@@ -20,6 +20,7 @@ let tg = window.Telegram.WebApp
   {{ tg.initDataUnsafe.user.first_name }}
 
   <button @click="tg.close()">Закрыть окно</button>
+  1
 
 </template>
 
