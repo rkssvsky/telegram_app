@@ -5,7 +5,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: var(--tg-theme-secondary-bg-color);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -25,7 +25,7 @@ a:hover {
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: var(--tg-theme-link-color);
   text-decoration: inherit;
 }
 a:hover {
@@ -52,7 +52,8 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  color: var(--tg-theme-button-text-color);
+  background-color: var(--tg-theme-button-color);
   cursor: pointer;
   transition: border-color 0.25s;
 }
