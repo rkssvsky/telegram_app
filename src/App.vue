@@ -1,5 +1,6 @@
 <script setup>
 let tg = window.Telegram.WebApp
+tg.expand()
 
 </script>
 
