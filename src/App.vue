@@ -6,7 +6,7 @@ tg.expand()
 
 <template>
 
-
+  <div id="ton-connect"></div>
 
   {{ tg }}
 
