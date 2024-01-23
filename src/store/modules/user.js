@@ -132,10 +132,8 @@ const actions = {
 
 const getters = {
   isAuth(state) {
-    return !!state.user.email
-  },
-  wallet(state) {
-    return state.walletTX
+    // return !!state.user.id
+    return true
   }
 }
 
@@ -146,4 +144,3 @@ export default {
   actions,
   getters
 }
-z

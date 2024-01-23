@@ -1,45 +1,28 @@
 <template>
   <v-app>
-    <header-menu v-if="isAuth" />
+    <the-header />
     <v-main>
-      <router-view v-slot="{ Component, route }">
-        <!-- Use a custom transition or fallback to `fade` -->
+      <router-view v-slot="{ Component }">
         <Transition type="transition" name="fade" mode="out-in">
           <component :is="Component" />
         </Transition>
       </router-view>
     </v-main>
-    <object-view-dialog />
-    <bottom-navigation v-if="$vuetify.display.xs && isAuth" />
-    <range-date-dialog />
   </v-app>
 </template>
 
 <script setup>
-import VueHeader from '@/components/TheHeader.vue'
-import { computed, watch, nextTick } from 'vue'
-import { get, sync } from 'vuex-pathify'
-import { useTheme } from 'vuetify'
-
-const isAuth = computed(() => {
-  return get('user/isAuth')
-})
-import HeaderMenu from '@/components/common/header/HeaderMenu.vue'
-import ObjectViewDialog from '@/components/objects/ObjectViewDialog.vue'
-import BottomNavigation from '@/components/common/BottomNavigation.vue'
-import RangeDateDialog from '@/components/basket/RangeDateDialog.vue'
-
 import { watch, nextTick, onMounted } from 'vue'
 import { dispatch, get, sync } from 'vuex-pathify'
 import { useTheme } from 'vuetify'
+import TheHeader from '@/components/TheHeader.vue'
 
 const theme = useTheme()
-const { isAuth } = get('user/*')
-const { snackbar, snackbarText, snackbarColor } = sync('squares/*')
+// const { isAuth } = get('user/*')
 
-onMounted(() => {
-  dispatch('user/getUserWallet')
-})
+// onMounted(() => {
+//   dispatch('user/getUserWallet')
+// })
 
 watch(theme.global.name, themeTransition)
 function themeTransition() {
