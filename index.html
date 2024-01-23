@@ -1,32 +1,30 @@
-<!doctype html>
-<html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/telegram_app/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <script src="https://unpkg.com/@tonconnect/ui@latest/dist/tonconnect-ui.min.js"></script>
-      <title>WebApp</title>
-    <script type="module" crossorigin src="/telegram_app/assets/index-867f4aca.js"></script>
-    <link rel="stylesheet" href="/telegram_app/assets/index-fa4f5bea.css">
-  </head>
-  <body>
-  <div id="ton-connect"></div>
-    <div id="app"></div>
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    
-    <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
-    <script>eruda.init()</script>
-    <script>
-        const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
-            manifestUrl: 'https://rkssvsky.github.io/telegram_app/tonconnect-manifest.json',
-            buttonRootId: 'ton-connect',
-        });
+<!DOCTYPE html>
+<html lang="en">
 
-        tonConnectUI.uiOptions = {
-            twaReturnUrl: 'https://t.me/durov'
-        };
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="/telegram_app/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Цифровые Метры</title>
+  <script type="module" crossorigin src="/telegram_app/assets/index.1fb27c60.js"></script>
+  <link rel="stylesheet" href="/telegram_app/assets/index.bd0b7b95.css">
+</head>
 
-        tonConnectUI.openModal()
-    </script>
-  </body>
+<body>
+<div id="ton-connect"></div>
+<div id="app"></div>
+  
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+
+<script src="https://unpkg.com/@tonconnect/ui@latest/dist/tonconnect-ui.min.js"></script>
+<script>
+  const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
+    manifestUrl: 'https://rkssvsky.github.io/telegram_app/tonconnect-manifest.json',
+    buttonRootId: 'ton-connect'
+  });
+  const walletsList = await tonConnectUI.getWallets();
+
+</script>
+</body>
+
 </html>
