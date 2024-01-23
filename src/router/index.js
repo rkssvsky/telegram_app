@@ -14,6 +14,12 @@ const routes = [
     name: 'completes',
     meta: { auth: false, transition: 'slide-left' },
     component: () => import('@/views/CompletesView.vue')
+  },
+  {
+    path: '/create',
+    name: 'create',
+    meta: { auth: false, transition: 'slide-left' },
+    component: () => import('@/views/CreateView.vue')
   }
 ]
 
