@@ -1,19 +1,46 @@
 {
-  "name": "telegram_app",
-  "private": true,
+  "name": "mrk.online",
   "version": "0.0.0",
-  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "eslint . --fix --ignore-path .gitignore",
+    "test:cypress": "start-server-and-test 'yarn dev -- --port 10000' http://localhost:10000 'yarn cypress run'",
+    "cypress": "cypress open"
   },
   "dependencies": {
-    "@tonconnect/ui": "^2.0.0",
-    "vue": "^3.3.4"
+    "@babel/core": "^7.22.5",
+    "@babel/eslint-parser": "^7.22.5",
+    "@mdi/font": "7.0.96",
+    "@vuelidate/core": "^2.0.2",
+    "@vuelidate/validators": "^2.0.2",
+    "@vuepic/vue-datepicker": "^5.4.0",
+    "axios": "^1.4.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "moment": "^2.29.4",
+    "prettier": "^2.8.8",
+    "roboto-fontface": "*",
+    "svg.js": "^2.7.1",
+    "vue": "^3.2.38",
+    "vue-router": "^4.0.0",
+    "vue3-persian-datetime-picker": "^1.2.2",
+    "vuelidate": "^0.7.7",
+    "vuetify": "^3.0.0",
+    "vuex": "^4.1.0",
+    "vuex-pathify": "^3.0.0-beta",
+    "webfontloader": "^1.0.0"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^4.2.3",
-    "vite": "^4.4.5"
+    "@vitejs/plugin-vue": "^3.0.3",
+    "@faker-js/faker": "^8.0.2",
+    "cypress": "^12.17.4",
+    "eslint": "^8.43.0",
+    "eslint-plugin-cypress": "^2.14.0",
+    "eslint-plugin-vue": "^9.3.0",
+    "start-server-and-test": "^2.0.0",
+    "vite": "^3.1.9",
+    "vite-plugin-vuetify": "^1.0.0-alpha.12"
   }
 }

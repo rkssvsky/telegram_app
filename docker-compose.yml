@@ -1,0 +1,33 @@
+version: "3.4"
+
+networks:
+  default:
+    external:
+      name: ocrv.ru
+
+services:
+
+  service:
+    image: "${DOCKER_HUB_SOCHI}/${REGISTRIES_PATH_SOCHI}/${CI_PROJECT_NAME}:${SERVICE_TAG}"
+    container_name: ${CI_PROJECT_NAME}
+    restart: always
+    env_file:
+        .env
+    ports:
+      - 8073:80
+    # volumes:
+    #   - /var/hyperledger:/var/hyperledger
+    healthcheck:
+      test: wget --no-verbose --tries=1 --spider 'http://localhost:80' || exit 1
+      interval: 30s
+      retries: 5
+      start_period: 15s
+      timeout: 10s
+    networks:
+      - default      
+    logging: 
+      driver: "json-file"
+      options:
+        tag: "${CI_PROJECT_NAME}"
+        max-size: "10m"
+        max-file: "3"

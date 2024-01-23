@@ -1,0 +1,4 @@
+include:
+  - project: blockchain/platform/devops/ci-cd
+    ref: master
+    file: .gitlab-ci-services.yml

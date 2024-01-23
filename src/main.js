@@ -1,5 +1,10 @@
-import { createApp } from 'vue'
-import './style.css'
+// Components
 import App from './App.vue'
+// Composables
+import { createApp } from 'vue'
+// Plugins
+import { registerPlugins } from '@/plugins'
+const app = createApp(App)
 
-createApp(App).mount('#app')
+registerPlugins(app)
+app.mount('#app')
