@@ -1,9 +1,9 @@
 <template>
   <v-app>
-    <the-header />
+    <!--    <the-header />-->
     <v-main>
       <router-view v-slot="{ Component }">
-        <Transition type="transition" name="fade" mode="out-in">
+        <Transition type="transition" name="slide-fade" mode="out-in">
           <component :is="Component" />
         </Transition>
       </router-view>
@@ -101,20 +101,33 @@ function themeTransition() {
   transition: clip-path 0.6s ease-out;
 }
 
+.bottom-menu {
+  border: 1px white solid;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+}
+
 .slide-fade-enter-active {
   transition: all 0.2s ease-out;
 }
 .slide-fade-leave-active {
-  transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
+  transition: all 0.1s cubic-bezier(1, 0.5, 0.8, 1);
 }
-.slide-fade-enter-from,
-.slide-fade-leave-to {
+.slide-fade-enter-from {
   transform: translateX(40px);
   opacity: 0;
 }
+.slide-fade-leave-to {
+  transform: translateX(-40px);
+  opacity: 0;
+}
+
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.3s ease;
+  transition: opacity 0.1s ease;
 }
 .fade-enter-from,
 .fade-leave-to {

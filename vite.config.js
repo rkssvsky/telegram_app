@@ -9,7 +9,7 @@ import { fileURLToPath, URL } from 'node:url'
 // https://vitejs.dev/config/
 export default defineConfig({
   // publicPath: '/telegram_app/',
-  base: '/telegram_app/',
+  // base: '/telegram_app/',
   plugins: [
     vue({
       template: { transformAssetUrls }
