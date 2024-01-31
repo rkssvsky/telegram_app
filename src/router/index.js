@@ -4,22 +4,46 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 const routes = [
   {
+    path: '/',
+    name: 'main',
+    meta: { auth: false },
+    component: () => import('@/views/MainView.vue')
+  },
+  {
     path: '/active',
     name: 'active',
-    meta: { auth: false, transition: 'slide-fade' },
+    meta: { auth: false },
     component: () => import('@/views/ActiveView.vue')
   },
   {
     path: '/completes',
     name: 'completes',
-    meta: { auth: false, transition: 'slide-left' },
+    meta: { auth: false },
     component: () => import('@/views/CompletesView.vue')
   },
   {
     path: '/create',
     name: 'create',
-    meta: { auth: false, transition: 'slide-left' },
+    meta: { auth: false },
     component: () => import('@/views/CreateView.vue')
+  },
+  {
+    path: '/conditions',
+    name: 'conditions',
+    meta: { auth: false },
+    component: () => import('@/views/ConditionsView.vue')
+  },
+  {
+    path: '/chaincode',
+    name: 'chaincode',
+    meta: { auth: false },
+    component: () => import('@/views/ChaincodeView.vue')
+  },
+  {
+    path: '/thanks',
+    name: 'thanks',
+    meta: { auth: false },
+    component: () => import('@/views/ThanksView.vue')
   }
 ]
 

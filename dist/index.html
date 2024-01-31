@@ -3,28 +3,51 @@
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" href="/telegram_app/favicon.ico" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script defer src="/telegram_app/config.js"></script>
-  <title>Квадратные метры</title>
-  <script type="module" crossorigin src="/telegram_app/assets/index.6f6d5942.js"></script>
-  <link rel="stylesheet" href="/telegram_app/assets/index.5a471791.css">
+  <link rel="icon" href="/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+<!--  <script src="https://cdn.jsdelivr.net/npm/eruda"></script>-->
+  <script defer src="./config.js"></script>
+  <title>Giveaway bot</title>
+  <style>
+      body {
+          font: 12px/18px "Lucida Grande", "Lucida Sans Unicode", Arial, Helvetica, Verdana, sans-serif;
+          //background-color: var(--tg-theme-secondary-bg-color)!important;
+          padding: 0;
+          color-scheme: var(--tg-color-scheme);
+          height: var(--tg-viewport-stable-height, 100vh);
+          max-width: 640px;
+          margin: 0 auto;
+      }
+      .v-application {
+          background: var(--tg-theme-secondary-bg-color)!important;
+      }
+      button {
+          //background-color: var(--tg-theme-button-color)!important;
+          background-color: var(--tg-theme-button-color)!important;
+      }
+      .text {
+          color: var(--tg-theme-text-color)!important;
+      }
+      .v-field--variant-solo {
+          border-radius: 8px!important;
+          border: 1px solid var(--tg-theme-button-color)!important;
+        background-color: var(--tg-theme-secondary-bg-color)!important;
+      }
+  </style>
+  <script type="module" crossorigin src="/assets/index.bf0fd683.js"></script>
+  <link rel="stylesheet" href="/assets/index.25e8db0c.css">
 </head>
-
 <body>
-<div id="ton-connect"></div>
+
+
 <div id="app"></div>
-  
-<script src="https://telegram.org/js/telegram-web-app.js"></script>
 
-<script src="https://unpkg.com/@tonconnect/ui@latest/dist/tonconnect-ui.min.js"></script>
 <script>
-  const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
-    manifestUrl: 'https://rkssvsky.github.io/telegram_app/tonconnect-manifest.json',
-    buttonRootId: 'ton-connect'
-  });
-  const walletsList = await tonConnectUI.getWallets();
-
+  // eruda.init();
+  let tg = window.Telegram.WebApp
+  console.log(tg);
 </script>
 </body>
 </html>

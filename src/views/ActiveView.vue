@@ -1,12 +1,11 @@
 <template>
   <v-container>
-    <v-row>
-      <v-col>
-        test 1 test 1 test 1 test 1 test 1 test 1 test 1 test 1 test 1 test 1
-        test 1 test 1 test 1 test 1
-        <div class="fill-height" style="background-color: red"></div>
-      </v-col>
-    </v-row>
+    <div class="align-center">
+      У вас нет активных розыгрышей <br />
+      <v-btn rounded="lg" @click="$router.push({ name: 'create' })"
+        >Создать</v-btn
+      >
+    </div>
   </v-container>
 </template>
 
