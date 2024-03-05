@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <div class="align-center">
+    <div class="align-center text">
       У вас нет завершенных розыгрышей <br />
       <v-btn rounded="lg">Создать</v-btn>
     </div>

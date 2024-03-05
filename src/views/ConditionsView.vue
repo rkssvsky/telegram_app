@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-card-title class="px-1">Условия завершения</v-card-title>
+    <div class="text">Условия завершения</div>
     <v-text-field
       class="mb-2"
       density="comfortable"

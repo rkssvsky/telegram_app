@@ -7,7 +7,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
-<!--  <script src="https://cdn.jsdelivr.net/npm/eruda"></script>-->
   <script defer src="./config.js"></script>
   <title>Giveaway bot</title>
   <style>
@@ -21,10 +20,9 @@
           margin: 0 auto;
       }
       .v-application {
-          background: var(--tg-theme-secondary-bg-color)!important;
+          background: var(--tg-theme-bg-color)!important;
       }
       button {
-          //background-color: var(--tg-theme-button-color)!important;
           background-color: var(--tg-theme-button-color)!important;
       }
       .text {
@@ -35,6 +33,19 @@
           border: 1px solid var(--tg-theme-button-color)!important;
         background-color: var(--tg-theme-secondary-bg-color)!important;
       }
+      .v-switch__thumb {
+          color: var(--tg-theme-button-color)!important;
+      }
+      .v-switch__track {
+          background-color: var(--tg-theme-bg-color)!important;
+      }
+      .bg-secondary {
+          background-color: var(--tg-theme-secondary-bg-color)!important;
+      }
+      .bg-color {
+          background-color: var(--tg-theme-bg-color)!important;;
+      }
+
   </style>
 </head>
 <body>
@@ -43,9 +54,8 @@
 <div id="app"></div>
 <script type="module" src="/src/main.js"></script>
 <script>
-  // eruda.init();
   let tg = window.Telegram.WebApp
-  console.log(tg);
+  // console.log(tg);
 </script>
 </body>
 </html>

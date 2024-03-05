@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <div>Создание</div>
+    <div class="text">Создание</div>
     <v-text-field
       class="mb-2"
       density="comfortable"
@@ -43,6 +43,14 @@
       @click="$router.push({ name: 'conditions' })"
       >Задать условия
     </v-btn>
+    <!--    <label for="avatar">Choose a profile picture:</label>-->
+
+    <!--    <input-->
+    <!--      type="file"-->
+    <!--      id="avatar"-->
+    <!--      name="avatar"-->
+    <!--      accept="image/png, image/jpeg"-->
+    <!--    />-->
   </v-container>
 </template>
 
