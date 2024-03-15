@@ -1,31 +1,22 @@
 <template>
   <v-container>
-    <div class="page-title">Создание</div>
-    <v-text-field
-      v-model="newGiv.title"
-      class="mb-2"
-      density="comfortable"
-      variant="solo"
-      label="Название"
-      hide-details
-    ></v-text-field>
-    <v-textarea
-      v-model="newGiv.desc"
-      class="mb-2"
-      density="comfortable"
-      variant="solo"
-      label="Описание"
-      hide-details
-    ></v-textarea>
+    <div class="page-title">Черновики</div>
+    <ListGivItem
+      v-for="(draft, i) in drafts"
+      :key="i"
+      :draft="draft"
+      @click="$router.push({ name: '' })"
+    ></ListGivItem>
   </v-container>
 </template>
 
 <script setup>
 import { sync } from 'vuex-pathify'
 import { onMounted } from 'vue'
-import { MainBtnHandle, BackBtnHandle } from '@/services/buttonHandle'
+import { BackBtnHandle, MainBtnHandle } from '@/services/buttonHandle'
 import { useRouter } from 'vue-router'
-let { newGiv } = sync('givs/*')
+import ListGivItem from '@/components/ListGivItem.vue'
+let { drafts } = sync('givs/*')
 
 const router = useRouter()
 

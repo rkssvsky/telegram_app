@@ -1,6 +1,5 @@
 <template>
   <v-container>
-    <div class="text">GiveAway Bot</div>
     <v-img
       style="border-radius: 12px"
       class="mb-2 mx-auto"
@@ -21,15 +20,18 @@
       rounded="lg"
       block
       prepend-icon="mdi-format-list-bulleted"
+      @click="$router.push({ name: 'active' })"
     >
       Мои розыгрыши
     </v-btn>
-    <v-btn rounded="lg" block prepend-icon="mdi-content-save-all-outline">
+    <v-btn
+      rounded="lg"
+      block
+      prepend-icon="mdi-content-save-all-outline"
+      @click="$router.push({ name: 'drafts' })"
+    >
       Черновики
     </v-btn>
-    <v-sheet class="bg-color" height="100px"></v-sheet>
-    <v-sheet class="bg-secondary" height="100px"></v-sheet>
-    <!--    <div class="bottom-menu">test</div>-->
   </v-container>
 </template>
 

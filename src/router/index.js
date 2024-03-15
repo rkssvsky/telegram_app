@@ -10,16 +10,16 @@ const routes = [
     component: () => import('@/views/MainView.vue')
   },
   {
-    path: '/active',
-    name: 'active',
-    meta: { auth: false },
-    component: () => import('@/views/ActiveView.vue')
-  },
-  {
     path: '/completes',
     name: 'completes',
     meta: { auth: false },
     component: () => import('@/views/CompletesView.vue')
+  },
+  {
+    path: '/active',
+    name: 'active',
+    meta: { auth: false },
+    component: () => import('@/views/ActiveView.vue')
   },
   {
     path: '/create',
@@ -28,8 +28,14 @@ const routes = [
     component: () => import('@/views/CreateView.vue')
   },
   {
-    path: '/conditions',
+    path: '/start',
     name: 'conditions',
+    meta: { auth: false },
+    component: () => import('@/views/ConditionsStartView.vue')
+  },
+  {
+    path: '/end',
+    name: 'conditionsEnd',
     meta: { auth: false },
     component: () => import('@/views/ConditionsView.vue')
   },
@@ -38,6 +44,18 @@ const routes = [
     name: 'chaincode',
     meta: { auth: false },
     component: () => import('@/views/ChaincodeView.vue')
+  },
+  {
+    path: '/drafts',
+    name: 'drafts',
+    meta: { auth: false },
+    component: () => import('@/views/DraftsView.vue')
+  },
+  {
+    path: '/giv',
+    name: 'giv',
+    meta: { auth: false },
+    component: () => import('@/views/DraftsView.vue')
   },
   {
     path: '/thanks',

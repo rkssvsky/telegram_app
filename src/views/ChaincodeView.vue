@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-card-title class="px-1">Внимание!</v-card-title>
+    <div class="page-title">Внимание!</div>
     <div class="px-1">
       Вы создаете новую лотерею. Платформой GiveawayBot будет сгенерирован
       смарт-контракт с условиями проведения лотереи и размещен в сети TON. Для
@@ -13,10 +13,17 @@
       density="comfortable"
       variant="solo"
       label="Адрес кошелька"
+      prepend-inner-icon="mdi-wallet-outline"
       hide-details
     ></v-text-field>
 
-    <v-btn block class="mb-2" rounded="lg" @click="$router.push({ name: '' })">
+    <v-btn
+      block
+      class="mb-2"
+      rounded="lg"
+      append-icon="mdi-checkbox-marked-circle-outline"
+      @click="$router.push({ name: '' })"
+    >
       Подтвердить адрес
     </v-btn>
     <v-btn

@@ -1,6 +1,5 @@
 <template>
   <v-app>
-    <!--    <the-header />-->
     <v-main>
       <router-view v-slot="{ Component }">
         <Transition type="transition" name="slide-fade" mode="out-in">
@@ -12,78 +11,25 @@
 </template>
 
 <script setup>
-import { watch, nextTick, onMounted } from 'vue'
-import { dispatch, get, sync } from 'vuex-pathify'
-import { useTheme } from 'vuetify'
-import TheHeader from '@/components/TheHeader.vue'
+import { onMounted } from 'vue'
 
-const theme = useTheme()
-// const { isAuth } = get('user/*')
-
-// onMounted(() => {
-//   dispatch('user/getUserWallet')
-// })
-
-watch(theme.global.name, themeTransition)
-function themeTransition() {
-  // console.log('switchTheme')
-
-  const x = performance.now()
-  for (let i = 0; i++ < 1e7; (i << 9) & ((9 % 9) * 9 + 9));
-  if (performance.now() - x > 10) return
-
-  const el = document.querySelector('[data-v-app]')
-
-  const copy = el.cloneNode(true)
-  copy.classList.add('app-copy')
-  const rect = el.getBoundingClientRect()
-  copy.style.top = rect.top + 'px'
-  copy.style.left = rect.left + 'px'
-  copy.style.width = rect.width + 'px'
-  copy.style.height = rect.height + 'px'
-
-  const targetEl = document.activeElement
-  const targetRect = targetEl.getBoundingClientRect()
-  const left = targetRect.left + targetRect.width / 2 + window.scrollX
-  const top = targetRect.top + targetRect.height / 2 + window.scrollY
-  el.style.setProperty('--clip-pos', `${left}px ${top}px`)
-  el.style.removeProperty('--clip-size')
-
-  nextTick(() => {
-    // console.log('nextTick')
-    el.classList.add('app-transition')
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        el.style.setProperty(
-          '--clip-size',
-          Math.hypot(window.innerWidth, window.innerHeight) + 'px'
-        )
-      })
-    })
-  })
-
-  document.body.append(copy)
-
-  Array.from(copy.querySelectorAll('[data-scroll-x], [data-scroll-y]')).forEach(
-    el => {
-      el.scrollLeft = +el.dataset.scrollX
-      el.scrollTop = +el.dataset.scrollY
-    }
-  )
-
-  function onTransitionend(e) {
-    if (e.target === e.currentTarget) {
-      copy.remove()
-      el.removeEventListener('transitionend', onTransitionend)
-      el.removeEventListener('transitioncancel', onTransitionend)
-      el.classList.remove('app-transition')
-      el.style.removeProperty('--clip-size')
-      el.style.removeProperty('--clip-pos')
-    }
+onMounted(() => {
+  window.Telegram.WebApp.colorScheme = {
+    accent_text_color: '#6ab2f2',
+    bg_color: '#17212b',
+    button_color: '#5288c1',
+    button_text_color: '#ffffff',
+    destructive_text_color: '#ec3942',
+    header_bg_color: '#17212b',
+    hint_color: '#708499',
+    link_color: '#6ab3f3',
+    secondary_bg_color: '#232e3c',
+    section_bg_color: '#17212b',
+    section_header_text_color: '#6ab3f3',
+    subtitle_text_color: '#708499',
+    text_color: '#f5f5f5'
   }
-  el.addEventListener('transitionend', onTransitionend)
-  el.addEventListener('transitioncancel', onTransitionend)
-}
+})
 </script>
 <style>
 .app-copy {

@@ -23,8 +23,14 @@ export default createVuetify({
       },
       dark: {
         colors: {
-          primary: '#e21a1a',
-          secondary: '#666666'
+          primary: '#0687C9', // первичный цвет
+          secondary: '#394a58', // вторичный цвет
+          surface: '#fff', // поверхность
+          background: window.Telegram.WebApp.colorScheme.bg_color, // фон
+          error: '#e21a1a',
+          info: '#33d9ff',
+          success: '#6bff26',
+          warning: '#ff520f'
         }
       }
     }

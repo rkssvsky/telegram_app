@@ -9,14 +9,17 @@
   <script defer src="./config.js"></script>
   <title>Giveaway bot</title>
   <style>
+/*
+accent_text_color: '#'
+*/
       body {
-          --bg-color: var(--tg-theme-bg-color);
+          /*--bg-color: var(--tg-theme-bg-color);*/
           font: 12px/18px "Lucida Grande", "Lucida Sans Unicode", Arial, Helvetica, Verdana, sans-serif;
-          background-color: var(--bg-color);
-          color: var(--tg-theme-text-color);
-          margin: 12px;
+          /*background-color: var(--bg-color);*/
+          /*color: var(--tg-theme-text-color);*/
+          margin: 4px;
           padding: 0;
-          color-scheme: var(--tg-color-scheme);
+          /*color-scheme: var(--tg-color-scheme);*/
       }
 
       a {
@@ -39,7 +42,7 @@
           right: 0;
           top: 0;
           bottom: 0;
-          border-width: 4px;
+          border-width: 1px;
           border-style: solid;
           border-image: linear-gradient(45deg, rgba(64, 224, 208, .5), rgba(173, 255, 47, .5)) 1;
       }
@@ -62,34 +65,47 @@
       #viewport-params-expand {
           top: 30px;
       }
-      .v-application {
-          background: var(--tg-theme-bg-color)!important;
+      /*.v-application {*/
+      /*    background: var(--tg-theme-bg-color)!important;*/
+      /*}*/
+      /*button {*/
+      /*    background-color: var(--tg-theme-button-color)!important;*/
+      /*}*/
+      .page-title {
+          font-weight: bolder;
+          font-size: 16px;
+          margin: 12px 5px;
+          /*color: var(--tg-theme-text-color)!important;*/
       }
-      button {
-          background-color: var(--tg-theme-button-color)!important;
-      }
-      .text {
-          color: var(--tg-theme-text-color)!important;
-      }
-      .v-field--variant-solo {
-          border-radius: 8px!important;
-          border: 1px solid var(--tg-theme-button-color)!important;
-          background-color: var(--tg-theme-secondary-bg-color)!important;
-      }
-      .v-switch__thumb {
-          color: var(--tg-theme-button-color)!important;
-      }
-      .v-switch__track {
-          background-color: var(--tg-theme-bg-color)!important;
-      }
-      .bg-secondary {
-          background-color: var(--tg-theme-secondary-bg-color)!important;
-      }
-      .bg-color {
-          background-color: var(--tg-theme-bg-color)!important;;
-      }
+      /*.v-field--variant-solo {*/
+      /*    border-radius: 8px!important;*/
+      /*    border: 1px solid var(--tg-theme-button-color)!important;*/
+      /*    background-color: var(--tg-theme-secondary-bg-color)!important;*/
+      /*}*/
+      /*.v-switch__thumb {*/
+      /*    color: var(--tg-theme-button-color)!important;*/
+      /*}*/
+      /*.v-switch__track {*/
+      /*    background-color: var(--tg-theme-secondary-bg-color)!important;*/
+      /*}*/
+      /*.bg-secondary {*/
+      /*    background-color: var(--tg-theme-secondary-bg-color)!important;*/
+      /*}*/
+      /*.bg-color {*/
+      /*    background-color: var(--tg-theme-bg-color)!important;*/
+      /*}*/
+      /*.v-field--variant-solo {*/
+      /*    background-color: var(--tg-theme-bg-color)!important;*/
+      /*    color: var(--tg-theme-text-color)!important;*/
+      /*}*/
+      /*.v-container {*/
+      /*    padding: 8px!important;*/
+      /*}*/
+      /*.v-card {*/
+      /*    background: var(--tg-theme-button-color)!important;*/
+      /*}*/
   </style>
-  <script type="module" crossorigin src="/assets/index.1c094350.js"></script>
+  <script type="module" crossorigin src="/assets/index.34aae8d1.js"></script>
   <link rel="stylesheet" href="/assets/index.25e8db0c.css">
 </head>
 <body>
@@ -97,30 +113,30 @@
 
 <div id="app"></div>
 
-  <h4>Modals</h4>
-  <button onclick="Telegram.WebApp.showAlert('Hello World!');">Alert</button>
-  <button onclick="showPopup();">Popup</button>
+<!--  <h4>Modals</h4>-->
+<!--  <button onclick="Telegram.WebApp.showAlert('Hello World!');">Alert</button>-->
+<!--  <button onclick="showPopup();">Popup</button>-->
 
-  <h4>Links</h4>
-  <ul>
-    <li>
-      <a href="javascript:Telegram.WebApp.openTelegramLink('https://t.me/trendingapps');">Open link within Telegram</a>
-    </li>
-    <li>
-      <a href="javascript:Telegram.WebApp.openLink('https://ton.org/');">Open link in external browser</a>
-    </li>
-    <li>
-      <a href="javascript:Telegram.WebApp.openLink('https://telegra.ph/api',{try_instant_view:true});">Open link inside Telegram webview</a>
-    </li>
-  </ul>
+<!--  <h4>Links</h4>-->
+<!--  <ul>-->
+<!--    <li>-->
+<!--      <a href="javascript:Telegram.WebApp.openTelegramLink('https://t.me/trendingapps');">Open link within Telegram</a>-->
+<!--    </li>-->
+<!--    <li>-->
+<!--      <a href="javascript:Telegram.WebApp.openLink('https://ton.org/');">Open link in external browser</a>-->
+<!--    </li>-->
+<!--    <li>-->
+<!--      <a href="javascript:Telegram.WebApp.openLink('https://telegra.ph/api',{try_instant_view:true});">Open link inside Telegram webview</a>-->
+<!--    </li>-->
+<!--  </ul>-->
 
-  <h4>Buttons</h4>
-  <button onclick="Telegram.WebApp.expand();">Expand Webview</button>
-  <button onclick="toggleMainButton();">Toggle Main Button</button>
+<!--  <h4>Buttons</h4>-->
+<!--  <button onclick="Telegram.WebApp.expand();">Expand Webview</button>-->
+<!--  <button onclick="toggleMainButton();">Toggle Main Button</button>-->
 
-<div id="viewport"></div>
-<div id="viewport-params-size"></div>
-<div id="viewport-params-expand"></div>
+<!--<div id="viewport"></div>-->
+<!--<div id="viewport-params-size"></div>-->
+<!--<div id="viewport-params-expand"></div>-->
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 <script>
   // Init TWA
@@ -131,14 +147,6 @@
     document.documentElement.className = Telegram.WebApp.colorScheme;
   });
 
-  // Show main button
-  Telegram.WebApp.MainButton.setParams({
-    text: 'Main Button'
-  });
-  Telegram.WebApp.MainButton.onClick(function () {
-    Telegram.WebApp.showAlert('Main Button was clicked')
-  });
-  Telegram.WebApp.MainButton.show();
 
   // Function to call showPopup API
   function showPopup() {
@@ -165,19 +173,19 @@
     }
   };
 
-  function setViewportData() {
-    var sizeEl = document.getElementById('viewport-params-size');
-    sizeEl.innerText = 'width: ' + window.innerWidth + ' x ' +
-      'height: ' + Telegram.WebApp.viewportStableHeight;
-
-    var expandEl = document.querySelector('#viewport-params-expand');
-    expandEl.innerText = 'Is Expanded: ' + (Telegram.WebApp.isExpanded ? 'true' : 'false');
-  }
+  // function setViewportData() {
+  //   var sizeEl = document.getElementById('viewport-params-size');
+  //   sizeEl.innerText = 'width: ' + window.innerWidth + ' x ' +
+  //     'height: ' + Telegram.WebApp.viewportStableHeight;
+  //
+  //   var expandEl = document.querySelector('#viewport-params-expand');
+  //   expandEl.innerText = 'Is Expanded: ' + (Telegram.WebApp.isExpanded ? 'true' : 'false');
+  // }
 
   Telegram.WebApp.setHeaderColor('secondary_bg_color');
 
-  setViewportData();
-  Telegram.WebApp.onEvent('viewportChanged', setViewportData);
+  // setViewportData();
+  // Telegram.WebApp.onEvent('viewportChanged', setViewportData);
 
   Telegram.WebApp.onEvent('themeChanged', function() {
     document.body.setAttribute('style', '--bg-color:' + Telegram.WebApp.backgroundColor);
@@ -185,8 +193,5 @@
 
 </script>
 
-<!-- Eruda is console for mobile browsers -->
-<script src="https://cdn.jsdelivr.net/npm/eruda"></script>
-<script>eruda.init();</script>
 </body>
 </html>

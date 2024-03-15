@@ -3,28 +3,7 @@ import { users, wallet } from '@/utils/endpoints'
 import router from '@/router'
 
 const state = () => ({
-  user: {},
-  walletTX: '',
-  loadWallet: false,
-  activeTab: 'MyObjectsList',
-  city: '',
-  tabs: [
-    {
-      title: 'Мои объекты',
-      icon: 'format-list-bulleted',
-      value: 'MyObjectsList'
-    },
-    {
-      title: 'Арендованные',
-      icon: 'briefcase-check-outline',
-      value: 'RentedList'
-    },
-    {
-      title: 'Создать',
-      icon: 'tooltip-plus-outline',
-      value: 'CreateObject'
-    }
-  ]
+  user: {}
 })
 
 const mutations = make.mutations(state)
