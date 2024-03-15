@@ -26,7 +26,7 @@ export default createVuetify({
           primary: '#0687C9', // первичный цвет
           secondary: '#394a58', // вторичный цвет
           surface: '#fff', // поверхность
-          background: window.Telegram.WebApp.colorScheme.bg_color, // фон
+          background: '#F2F2F2', // фон
           error: '#e21a1a',
           info: '#33d9ff',
           success: '#6bff26',
