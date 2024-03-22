@@ -14,7 +14,18 @@
 import { onMounted } from 'vue'
 
 onMounted(() => {
-  window.Telegram.WebApp.colorScheme = {
+  tgThemeHandle()
+  let consts = {
+    primary: '#0687C9', // первичный цвет
+    secondary: '#394a58', // вторичный цвет
+    surface: '#fff', // поверхность
+    background: '#F2F2F2', // фон
+    error: '#e21a1a',
+    info: '#33d9ff',
+    success: '#6bff26',
+    warning: '#ff520f'
+  }
+  let colors = {
     accent_text_color: '#6ab2f2',
     bg_color: '#17212b',
     button_color: '#5288c1',
@@ -30,6 +41,15 @@ onMounted(() => {
     text_color: '#f5f5f5'
   }
 })
+
+function tgThemeHandle() {
+  console.log(window.Telegram)
+  const colors = window.Telegram.WebApp.themeParams
+  const theme = document.querySelector('.v-theme--light')
+  theme.style.setProperty('--v-theme-primary', colors.accent_text_color)
+  theme.style.setProperty('--v-theme-background', colors.bg_color)
+  theme.style.setProperty('--v-theme-text-color', '#333')
+}
 </script>
 <style>
 .app-copy {

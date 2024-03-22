@@ -7,7 +7,7 @@ import { createVuetify } from 'vuetify'
 
 export default createVuetify({
   theme: {
-    defaultTheme: 'dark',
+    defaultTheme: 'light',
     themes: {
       light: {
         colors: {
@@ -20,19 +20,19 @@ export default createVuetify({
           success: '#6bff26',
           warning: '#ff520f'
         }
-      },
-      dark: {
-        colors: {
-          primary: '#0687C9', // первичный цвет
-          secondary: '#394a58', // вторичный цвет
-          surface: '#fff', // поверхность
-          background: '#F2F2F2', // фон
-          error: '#e21a1a',
-          info: '#33d9ff',
-          success: '#6bff26',
-          warning: '#ff520f'
-        }
       }
+      // dark: {
+      //   colors: {
+      //     primary: '#0687C9', // первичный цвет
+      //     secondary: '#394a58', // вторичный цвет
+      //     surface: '#fff', // поверхность
+      //     background: '#F2F2F2', // фон
+      //     error: '#e21a1a',
+      //     info: '#33d9ff',
+      //     success: '#6bff26',
+      //     warning: '#ff520f'
+      //   }
+      // }
     }
   }
 })
