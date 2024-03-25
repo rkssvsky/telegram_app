@@ -1,6 +1,8 @@
 <template>
   <v-container>
     <div class="page-title">Создание</div>
+    <div>Создание</div>
+    <v-btn>Тест</v-btn>
     <v-text-field
       v-model="newGiv.title"
       class="mb-2"

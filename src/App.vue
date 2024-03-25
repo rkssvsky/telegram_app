@@ -7,11 +7,25 @@
         </Transition>
       </router-view>
     </v-main>
+    <div
+      style="height: 20px; width: 20px"
+      v-for="(item, index) in tgColors"
+      :key="item"
+    >
+      {{ index }}
+      <div :style="{ 'background-color': item }">
+        {{ item }}
+      </div>
+    </div>
   </v-app>
 </template>
 
 <script setup>
-import { onMounted } from 'vue'
+import { computed, onMounted } from 'vue'
+
+const tgColors = computed(() => {
+  return window.Telegram.WebApp.themeParams
+})
 
 onMounted(() => {
   tgThemeHandle()
@@ -46,9 +60,11 @@ function tgThemeHandle() {
   console.log(window.Telegram)
   const colors = window.Telegram.WebApp.themeParams
   const theme = document.querySelector('.v-theme--light')
+  const app = document.querySelector('.v-application')
   theme.style.setProperty('--v-theme-primary', colors.accent_text_color)
   theme.style.setProperty('--v-theme-background', colors.bg_color)
-  theme.style.setProperty('--v-theme-text-color', '#333')
+  theme.style.setProperty('--v-theme-surface', colors.button_color)
+  app.style.setProperty('color', 'red')
 }
 </script>
 <style>
