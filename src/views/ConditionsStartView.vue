@@ -2,7 +2,7 @@
   <v-container>
     <div class="page-title">Условия для запуска</div>
     <v-text-field
-      v-model="newGiv.price"
+      v-model="newGiv.ticket_price"
       class="mb-2"
       density="comfortable"
       variant="solo"
@@ -10,7 +10,7 @@
       hide-details
     ></v-text-field>
     <v-text-field
-      v-model="newGiv.winnersCount"
+      v-model="newGiv.users_count"
       class="mb-2"
       density="comfortable"
       variant="solo"
@@ -43,12 +43,13 @@
     <!--      @change="handleCompleteIsDateChange"-->
     <!--    ></v-switch>-->
     <v-btn
+      disabled
       block
-      color="secondary"
       rounded="lg"
-      append-icon="mdi-content-save"
+      prepend-icon="mdi-content-save"
       @click="$router.push({ name: 'conditions' })"
-      >Сохранить в черновики
+    >
+      Сохранить в черновики
     </v-btn>
   </v-container>
 </template>

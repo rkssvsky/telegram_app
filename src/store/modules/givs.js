@@ -4,17 +4,23 @@ import router from '@/router'
 
 const state = () => ({
   newGiv: {
-    title: '', // название
-    desc: '', // описание
-    price: '', // цена участия
-    //
-    winnersCount: '', // кол-во победителей
-    prize: '', // приз
-    completeAs: '', // завершить по условию
-    dateStart: '', // дата начала
-    time: '', // время начала
-    countTons: '', // количество монет для старта
-    addressWallet: '' //
+    name: 'some_name 3',
+    description: 'some descr',
+    owner_id: 11,
+    winner_wallet: '0x123',
+    post_created: true,
+    is_started: true,
+    users_count: 2,
+    ticket_price: 1,
+    message: 'some mesasge',
+    contract_wallet: '0x666',
+    channels: [
+      {
+        chat_id: 1,
+        name: 'test'
+      }
+    ],
+    start_time: '2014-11-12T11:45:26.371Z'
   },
   active: [],
   drafts: [
@@ -77,7 +83,8 @@ const actions = {
       router.push({ path: '/locations' })
       window.location.href = '/locations'
     })
-  }
+  },
+  getLotto() {}
 }
 
 const getters = {

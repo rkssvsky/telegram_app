@@ -6,113 +6,83 @@
           <component :is="Component" />
         </Transition>
       </router-view>
+      <pallete />
     </v-main>
-    <div
-      style="height: 20px; width: 20px"
-      v-for="(item, index) in tgColors"
-      :key="item"
-    >
-      {{ index }}
-      <div :style="{ 'background-color': item }">
-        {{ item }}
-      </div>
-    </div>
   </v-app>
 </template>
 
 <script setup>
-import { computed, onMounted } from 'vue'
+import { get } from 'vuex-pathify'
+import Pallete from '@/components/Pallete.vue'
 
-const tgColors = computed(() => {
-  return window.Telegram.WebApp.themeParams
-})
-
-onMounted(() => {
-  tgThemeHandle()
-  let consts = {
-    primary: '#0687C9', // первичный цвет
-    secondary: '#394a58', // вторичный цвет
-    surface: '#fff', // поверхность
-    background: '#F2F2F2', // фон
-    error: '#e21a1a',
-    info: '#33d9ff',
-    success: '#6bff26',
-    warning: '#ff520f'
-  }
-  let colors = {
-    accent_text_color: '#6ab2f2',
-    bg_color: '#17212b',
-    button_color: '#5288c1',
-    button_text_color: '#ffffff',
-    destructive_text_color: '#ec3942',
-    header_bg_color: '#17212b',
-    hint_color: '#708499',
-    link_color: '#6ab3f3',
-    secondary_bg_color: '#232e3c',
-    section_bg_color: '#17212b',
-    section_header_text_color: '#6ab3f3',
-    subtitle_text_color: '#708499',
-    text_color: '#f5f5f5'
-  }
-})
-
-function tgThemeHandle() {
-  console.log(window.Telegram)
-  const colors = window.Telegram.WebApp.themeParams
-  const theme = document.querySelector('.v-theme--light')
-  const app = document.querySelector('.v-application')
-  theme.style.setProperty('--v-theme-primary', colors.accent_text_color)
-  theme.style.setProperty('--v-theme-background', colors.bg_color)
-  theme.style.setProperty('--v-theme-surface', colors.button_color)
-  app.style.setProperty('color', 'red')
-}
+let { mobile } = get('app/*')
 </script>
-<style>
-.app-copy {
-  position: fixed !important;
-  z-index: -1 !important;
-  pointer-events: none !important;
-  contain: size style !important;
-  overflow: clip !important;
+<style lang="scss">
+* {
+  color: var(--tg-theme-text-color);
+}
+.v-application {
+  background-color: var(--tg-theme-bg-color) !important;
+}
+.v-btn {
+  background-color: var(--tg-theme-button-color) !important;
+  &__content {
+    color: var(--tg-theme-button-text-color) !important;
+  }
+  &__prepend > .v-icon {
+    color: var(--tg-theme-button-text-color) !important;
+  }
+  &--elevated {
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px !important;
+  }
+  &--disabled {
+    color: var(--tg-theme-button-text-color) !important;
+    background-color: var(--tg-theme-secondary-bg-color) !important;
+  }
+}
+/* fields */
+.v-field {
+  border-radius: 8px !important;
+  border: 1px solid var(--tg-theme-button-color) !important;
+  background-color: var(--tg-theme-secondary-bg-color) !important;
+  .v-icon {
+    &__invalid {
+      color: var(--tg-theme-destructive-text-color);
+    }
+  }
+  &--variant-solo {
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px !important;
+  }
 }
 
-.app-transition {
-  --clip-size: 0;
-  --clip-pos: 0 0;
-  clip-path: circle(var(--clip-size) at var(--clip-pos));
-  transition: clip-path 0.6s ease-out;
-}
-
-.bottom-menu {
-  border: 1px white solid;
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 40px;
+.page-title {
+  font-weight: bolder;
+  font-size: 16px;
+  margin: 0 4px 12px 4px;
+  color: var(--tg-theme-accent-text-color) !important;
 }
 
 .slide-fade-enter-active {
-  transition: all 0.2s ease-out;
+  transition: all 0.3s ease-out;
 }
 .slide-fade-leave-active {
   transition: all 0.1s cubic-bezier(1, 0.5, 0.8, 1);
 }
 .slide-fade-enter-from {
-  transform: translateX(40px);
+  transform: translateX(400px);
   opacity: 0;
 }
 .slide-fade-leave-to {
-  transform: translateX(-40px);
+  transform: translateX(-400px);
   opacity: 0;
 }
 
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.1s ease;
-}
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-}
+/*.fade-enter-active,*/
+/*.fade-leave-active {*/
+/*  transition: opacity 0.1s ease;*/
+/*}*/
+/*.fade-enter-from,*/
+/*.fade-leave-to {*/
+/*  opacity: 0;*/
+/*}*/
 </style>

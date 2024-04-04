@@ -1,6 +1,7 @@
-export function MainBtnHandle(name) {
+export function MainBtnHandle(name, active) {
   Telegram.WebApp.MainButton.setParams({
-    text: name
+    text: name,
+    is_active: active
   })
   Telegram.WebApp.MainButton.show()
 }

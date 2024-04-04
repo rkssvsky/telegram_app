@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="htmlParse">
 
 <head>
   <meta charset="UTF-8" />
@@ -9,19 +9,20 @@
   <script defer src="./config.js"></script>
   <title>Giveaway bot</title>
   <style>
-      body {
-          /*--bg-color: var(--tg-theme-bg-color);*/
-          font: 12px/18px "Lucida Grande", "Lucida Sans Unicode", Arial, Helvetica, Verdana, sans-serif;
-          /*background-color: var(--bg-color);*/
-          /*color: var(--tg-theme-text-color);*/
-          margin: 0;
-          padding: 0;
-          /*color-scheme: var(--tg-color-scheme);*/
-      }
+      /*body {*/
+      /*    color: red!important;*/
+      /*    !*--bg-color: var(--tg-theme-bg-color);*!*/
+      /*    font: 12px/18px "Lucida Grande", "Lucida Sans Unicode", Arial, Helvetica, Verdana, sans-serif;*/
+      /*    !*background-color: var(--bg-color);*!*/
+      /*    !*color: var(--tg-theme-text-color);*!*/
+      /*    margin: 0;*/
+      /*    padding: 0;*/
+      /*    !*color-scheme: var(--tg-color-scheme);*!*/
+      /*}*/
 
-      a {
-          color: var(--tg-theme-link-color);
-      }
+      /*a {*/
+      /*    color: var(--tg-theme-link-color);*/
+      /*}*/
       #viewport {
           position: fixed;
           left: 0;
@@ -68,17 +69,7 @@
       /*button {*/
       /*    background-color: var(--tg-theme-button-color)!important;*/
       /*}*/
-      .page-title {
-          font-weight: bolder;
-          font-size: 16px;
-          margin: 12px 5px;
-          /*color: var(--tg-theme-text-color)!important;*/
-      }
-      /*.v-field--variant-solo {*/
-      /*    border-radius: 8px!important;*/
-      /*    border: 1px solid var(--tg-theme-button-color)!important;*/
-      /*    background-color: var(--tg-theme-secondary-bg-color)!important;*/
-      /*}*/
+
       /*.v-switch__thumb {*/
       /*    color: var(--tg-theme-button-color)!important;*/
       /*}*/
@@ -168,19 +159,19 @@
     }
   };
 
-  // function setViewportData() {
-  //   var sizeEl = document.getElementById('viewport-params-size');
-  //   sizeEl.innerText = 'width: ' + window.innerWidth + ' x ' +
-  //     'height: ' + Telegram.WebApp.viewportStableHeight;
-  //
-  //   var expandEl = document.querySelector('#viewport-params-expand');
-  //   expandEl.innerText = 'Is Expanded: ' + (Telegram.WebApp.isExpanded ? 'true' : 'false');
-  // }
+  function setViewportData() {
+    var sizeEl = document.getElementById('viewport-params-size');
+    sizeEl.innerText = 'width: ' + window.innerWidth + ' x ' +
+      'height: ' + Telegram.WebApp.viewportStableHeight;
+
+    var expandEl = document.querySelector('#viewport-params-expand');
+    expandEl.innerText = 'Is Expanded: ' + (Telegram.WebApp.isExpanded ? 'true' : 'false');
+  }
 
   Telegram.WebApp.setHeaderColor('secondary_bg_color');
 
   // setViewportData();
-  // Telegram.WebApp.onEvent('viewportChanged', setViewportData);
+  Telegram.WebApp.onEvent('viewportChanged', setViewportData);
 
   Telegram.WebApp.onEvent('themeChanged', function() {
     document.body.setAttribute('style', '--bg-color:' + Telegram.WebApp.backgroundColor);

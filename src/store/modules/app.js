@@ -17,7 +17,11 @@ const actions = {
   }
 }
 
-const getters = {}
+const getters = {
+  mobile() {
+    return window.screen.width < 600
+  }
+}
 
 export default {
   namespaced: true,

@@ -1,12 +1,15 @@
+<script setup>
+import NoItems from '@/components/NoItems.vue'
+import { onMounted } from 'vue'
+onMounted(() => {})
+</script>
+
 <template>
   <v-container>
-    <div class="align-center">
-      У вас нет активных розыгрышей <br />
-      <v-btn rounded="lg" @click="$router.push({ name: 'create' })"
-        >Создать</v-btn
-      >
-    </div>
+    <NoItems
+      msg-text="У вас нет активных розыгрышей"
+      btnText="Создать"
+      btn-link="create"
+    />
   </v-container>
 </template>
-
-<script setup></script>
