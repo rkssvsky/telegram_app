@@ -1,5 +1,5 @@
 <template>
-  <v-sheet rounded="lg" class="no-item">
+  <v-sheet rounded="lg" class="no-item py-5">
     <div class="mb-4">{{ props.msgText }}</div>
     <v-btn
       class=""

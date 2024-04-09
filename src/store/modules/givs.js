@@ -1,11 +1,11 @@
 import { make } from 'vuex-pathify'
-import { users } from '@/utils/endpoints'
 import router from '@/router'
+import { lottery } from '@/utils/endpoints'
 
 const state = () => ({
   newGiv: {
-    name: 'some_name 3',
-    description: 'some descr',
+    name: 'Название',
+    description: 'Описание',
     owner_id: 11,
     winner_wallet: '0x123',
     post_created: true,
@@ -74,17 +74,41 @@ const mutations = make.mutations(state)
 const actions = {
   ...make.actions(state),
   login({ commit }, payload) {
-    users.post('login', payload).then(r => {
-      if (r.data.data?.attributes) {
-        commit('user/user', r.data.data.attributes, { root: true })
-      } else {
-        commit('user/user', r.data, { root: true })
-      }
-      router.push({ path: '/locations' })
-      window.location.href = '/locations'
+    // users.post('login', payload).then(r => {
+    //   if (r.data.data?.attributes) {
+    //     commit('user/user', r.data.data.attributes, { root: true })
+    //   } else {
+    //     commit('user/user', r.data, { root: true })
+    //   }
+    //   router.push({ path: '/locations' })
+    //   window.location.href = '/locations'
+    // })
+  },
+  getAllLottery() {
+    lottery.get('/list').then(r => {
+      console.log(r)
     })
   },
-  getLotto() {}
+  getLotteryById() {
+    lottery.get('/list').then(r => {
+      console.log(r)
+    })
+  },
+  createLottery() {
+    lottery.get('').then(r => {
+      console.log(r)
+    })
+  },
+  updateLotteryById() {
+    lottery.put('/list').then(r => {
+      console.log(r)
+    })
+  },
+  deleteLottery() {
+    lottery.delete('/list').then(r => {
+      console.log(r)
+    })
+  }
 }
 
 const getters = {

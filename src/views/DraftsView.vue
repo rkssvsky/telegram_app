@@ -1,6 +1,12 @@
 <template>
   <v-container>
     <div class="page-title">Черновики</div>
+    <NoItems
+      v-if="draftLength"
+      msg-text="У вас нет розыгрышей"
+      btnText="Создать"
+      btn-link="create"
+    />
     <ListGivItem
       v-for="(draft, i) in drafts"
       :key="i"
@@ -12,7 +18,7 @@
 
 <script setup>
 import { sync } from 'vuex-pathify'
-import { onMounted } from 'vue'
+import { computed, onMounted } from 'vue'
 import { BackBtnHandle, MainBtnHandle } from '@/services/buttonHandle'
 import { useRouter } from 'vue-router'
 import ListGivItem from '@/components/ListGivItem.vue'
@@ -25,6 +31,10 @@ onMounted(() => {
   if (router.options.history.state.back) {
     BackBtnHandle()
   }
+})
+
+const draftLength = computed(() => {
+  return drafts.value.length <= 0
 })
 
 Telegram.WebApp.MainButton.onClick(function () {

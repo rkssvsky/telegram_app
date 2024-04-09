@@ -22,7 +22,7 @@
       class="mb-2"
       density="comfortable"
       variant="solo"
-      label="Приз: кол-во Ton"
+      label="Приз"
       hide-details
     ></v-text-field>
     <v-switch
@@ -30,7 +30,17 @@
       hide-details
       inset
       density="compact"
-      label="Подписаться на каналы"
+      label="Вступить в каналы"
+      messages="Тест"
+      disabled
+      @change="handleCompleteIsMoneyChange"
+    ></v-switch>
+    <v-switch
+      v-model="completeIsMoney"
+      hide-details
+      inset
+      density="compact"
+      label="Запустить в день"
       disabled
       @change="handleCompleteIsMoneyChange"
     ></v-switch>

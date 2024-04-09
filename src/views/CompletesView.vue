@@ -7,4 +7,11 @@
   </v-container>
 </template>
 
-<script setup></script>
+<script setup>
+import { onMounted } from 'vue'
+import { dispatch } from 'vuex-pathify'
+
+onMounted(() => {
+  dispatch('givs/getLotteries')
+})
+</script>

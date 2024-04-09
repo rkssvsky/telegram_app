@@ -36,8 +36,16 @@ let { mobile } = get('app/*')
     box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px !important;
   }
   &--disabled {
-    color: var(--tg-theme-button-text-color) !important;
-    background-color: var(--tg-theme-secondary-bg-color) !important;
+    .v-btn__overlay {
+      opacity: 0.2 !important;
+    }
+    .v-btn__prepend > .v-icon {
+      color: var(--tg-theme-button-text-color) !important;
+    }
+    .v-btn__content {
+      color: var(--tg-theme-button-text-color) !important;
+    }
+    //background-color: var(--tg-theme-secondary-bg-color) !important;
   }
 }
 /* fields */
