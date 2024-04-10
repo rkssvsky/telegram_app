@@ -6,7 +6,7 @@
           <component :is="Component" />
         </Transition>
       </router-view>
-      <pallete />
+      <!--      <pallete />-->
     </v-main>
   </v-app>
 </template>
@@ -32,6 +32,9 @@ let { mobile } = get('app/*')
   &__prepend > .v-icon {
     color: var(--tg-theme-button-text-color) !important;
   }
+  &__append > .v-icon {
+    color: var(--tg-theme-button-text-color) !important;
+  }
   &--elevated {
     box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px !important;
   }
@@ -42,10 +45,12 @@ let { mobile } = get('app/*')
     .v-btn__prepend > .v-icon {
       color: var(--tg-theme-button-text-color) !important;
     }
+    .v-btn__append > .v-icon {
+      color: var(--tg-theme-button-text-color) !important;
+    }
     .v-btn__content {
       color: var(--tg-theme-button-text-color) !important;
     }
-    //background-color: var(--tg-theme-secondary-bg-color) !important;
   }
 }
 /* fields */

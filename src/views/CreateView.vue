@@ -3,14 +3,24 @@
     <div class="page-title">Создание</div>
     <v-text-field
       v-model="newGiv.name"
+      @focus="v$.name.$touch()"
+      @blur="v$.name.$touch()"
+      :error-messages="
+        v$.name.$dirty && v$.name.$invalid ? v$.name.$errors[0].$message : ''
+      "
       class="mb-2"
       density="comfortable"
       variant="solo"
       label="Название"
-      hide-details
+      :hide-details="!v$.name.$invalid"
     >
       <template v-slot:append-inner>
-        <v-icon class="v-icon__invalid">mdi-alert-circle-outline</v-icon>
+        <v-icon v-if="v$.name.$invalid" class="v-icon__invalid">
+          mdi-alert-circle-outline
+        </v-icon>
+        <v-icon color="green" v-if="!v$.name.$invalid" class="v-icon__invalid">
+          mdi-check
+        </v-icon>
       </template>
     </v-text-field>
     <v-textarea
@@ -30,14 +40,13 @@
 
 <script setup>
 import { sync } from 'vuex-pathify'
-import { computed, onMounted } from 'vue'
+import { onMounted } from 'vue'
 import { MainBtnHandle, BackBtnHandle } from '@/services/buttonHandle'
 import { useRouter } from 'vue-router'
 import { useVuelidate } from '@vuelidate/core'
-import { required, email } from '@vuelidate/validators'
-let { newGiv } = sync('givs/*')
-
+import { required } from '@vuelidate/validators'
 const router = useRouter()
+let { newGiv } = sync('givs/*')
 
 onMounted(() => {
   MainBtnHandle('Продолжить ➜', true)
@@ -46,18 +55,14 @@ onMounted(() => {
   }
 })
 
-const validName = computed(() => {
-  return false
-})
-
 const rules = {
-  title: { required },
-  body: { required },
-  emailAddress: { required, email },
-  gender: {},
-  save: {}
+  name: { required },
+  description: { required }
 }
 
+const v$ = useVuelidate(rules, newGiv)
+
+// telegram handlers
 Telegram.WebApp.MainButton.onClick(function () {
   router.push({ name: 'conditions' })
   // Telegram.WebApp.showAlert('Main Button was clicked')

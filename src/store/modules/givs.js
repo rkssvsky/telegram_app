@@ -4,7 +4,7 @@ import { lottery } from '@/utils/endpoints'
 
 const state = () => ({
   newGiv: {
-    name: 'Название',
+    name: '',
     description: 'Описание',
     owner_id: 11,
     winner_wallet: '0x123',
@@ -20,24 +20,11 @@ const state = () => ({
         name: 'test'
       }
     ],
+    prize: '',
     start_time: '2014-11-12T11:45:26.371Z'
   },
   active: [],
   drafts: [
-    {
-      id: '1',
-      title: 'Название', // название
-      desc: 'Описание описание описание', // описание
-      price: 2, // цена участия
-      //
-      winnersCount: '', // кол-во победителей
-      prize: '', // приз
-      completeAs: '', // завершить по условию
-      dateStart: '', // дата начала
-      time: '', // время начала
-      countTons: '', // количество монет для старта
-      addressWallet: '' //
-    },
     {
       id: '1',
       title: 'Название', // название
@@ -94,8 +81,8 @@ const actions = {
       console.log(r)
     })
   },
-  createLottery() {
-    lottery.get('').then(r => {
+  createLottery({ state }) {
+    lottery.post('', state.newGiv).then(r => {
       console.log(r)
     })
   },

@@ -11,8 +11,6 @@
     "@babel/core": "^7.22.5",
     "@babel/eslint-parser": "^7.22.5",
     "@mdi/font": "7.0.96",
-    "@vuelidate/core": "2",
-    "@vuelidate/validators": "2",
     "@vuepic/vue-datepicker": "^5.4.0",
     "axios": "^1.4.0",
     "eslint-config-prettier": "^8.8.0",
@@ -32,6 +30,8 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^3.0.3",
+    "@vuelidate/core": "^2.0.3",
+    "@vuelidate/validators": "^2.0.4",
     "eslint": "^8.43.0",
     "eslint-plugin-vue": "^9.3.0",
     "sass": "^1.72.0",
