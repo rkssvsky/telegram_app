@@ -1,17 +1,16 @@
 import { make } from 'vuex-pathify'
-import router from '@/router'
 import { lottery } from '@/utils/endpoints'
 
 const state = () => ({
   newGiv: {
     name: '',
-    description: 'Описание',
+    description: '',
     owner_id: 11,
     winner_wallet: '0x123',
     post_created: true,
     is_started: true,
-    users_count: 2,
-    ticket_price: 1,
+    users_count: null,
+    ticket_price: null,
     message: 'some mesasge',
     contract_wallet: '0x666',
     channels: [

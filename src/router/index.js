@@ -34,16 +34,10 @@ const routes = [
     component: () => import('@/views/CreateView.vue')
   },
   {
-    path: '/start',
+    path: '/conditions',
     name: 'conditions',
     meta: { auth: false },
-    component: () => import('@/views/ConditionsStartView.vue')
-  },
-  {
-    path: '/end',
-    name: 'conditionsEnd',
-    meta: { auth: false },
-    component: () => import('@/views/ConditionsView.vue')
+    component: () => import('@/views/Conditions.vue')
   },
   {
     path: '/chaincode',

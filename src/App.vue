@@ -6,6 +6,7 @@
           <component :is="Component" />
         </Transition>
       </router-view>
+      <v-btn id="test ">test</v-btn>
       <!--      <pallete />-->
     </v-main>
   </v-app>
@@ -13,6 +14,7 @@
 
 <script setup>
 import { get } from 'vuex-pathify'
+
 import Pallete from '@/components/Pallete.vue'
 
 let { mobile } = get('app/*')

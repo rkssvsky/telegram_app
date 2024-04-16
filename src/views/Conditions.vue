@@ -1,92 +1,108 @@
 <template>
   <v-container>
-    <div class="page-title">Создание</div>
+    <div class="page-title">Условия розыгрыша</div>
     <v-text-field
-      v-model="newGiv.name"
-      @input="v$.name.$touch()"
+      v-model="newGiv.ticket_price"
+      @input="v$.ticket_price.$touch()"
       :error-messages="
-        v$.name.$dirty && v$.name.$invalid ? 'Обязательное поле' : ''
-      "
-      class="mb-2"
-      density="comfortable"
-      variant="solo"
-      label="Название"
-      :hide-details="!v$.name.$invalid"
-    >
-      <template v-slot:append-inner>
-        <v-icon
-          v-if="v$.name.$dirty && v$.name.$invalid"
-          class="v-icon__invalid"
-        >
-          mdi-alert-circle-outline
-        </v-icon>
-        <v-icon
-          color="green"
-          v-if="v$.name.$dirty && !v$.name.$invalid"
-          class="v-icon__invalid"
-        >
-          mdi-check
-        </v-icon>
-      </template>
-    </v-text-field>
-    <v-textarea
-      v-model="newGiv.description"
-      @input="v$.description.$touch()"
-      :error-messages="
-        v$.description.$dirty && v$.description.$invalid
+        v$.ticket_price.$dirty && v$.ticket_price.$invalid
           ? 'Обязательное поле'
           : ''
       "
       class="mb-2"
       density="comfortable"
       variant="solo"
-      label="Описание"
-      :hide-details="!v$.description.$invalid"
+      label="Стоимость участия"
     >
       <template v-slot:append-inner>
         <v-icon
-          v-if="v$.description.$dirty && v$.description.$invalid"
+          v-if="v$.ticket_price.$dirty && v$.ticket_price.$invalid"
           class="v-icon__invalid"
         >
           mdi-alert-circle-outline
         </v-icon>
         <v-icon
           color="green"
-          v-if="v$.description.$dirty && !v$.description.$invalid"
+          v-if="v$.ticket_price.$dirty && !v$.ticket_price.$invalid"
           class="v-icon__invalid"
         >
           mdi-check
         </v-icon>
       </template>
-    </v-textarea>
+    </v-text-field>
+    <v-text-field
+      v-model="newGiv.prize"
+      disabled
+      class="mb-2"
+      density="comfortable"
+      variant="solo"
+      label="Приз"
+      hide-details
+    ></v-text-field>
+    <v-text-field
+      v-model="newGiv.users_count"
+      @input="v$.users_count.$touch()"
+      :error-messages="
+        v$.users_count.$dirty && v$.users_count.$invalid
+          ? 'Обязательное поле'
+          : ''
+      "
+      class="mb-2"
+      density="comfortable"
+      variant="solo"
+      label="Количество участников"
+    >
+      <template v-slot:append-inner>
+        <v-icon
+          v-if="v$.users_count.$dirty && v$.users_count.$invalid"
+          class="v-icon__invalid"
+        >
+          mdi-alert-circle-outline
+        </v-icon>
+        <v-icon
+          color="green"
+          v-if="v$.users_count.$dirty && !v$.users_count.$invalid"
+          class="v-icon__invalid"
+        >
+          mdi-check
+        </v-icon>
+      </template>
+    </v-text-field>
+    <v-btn
+      disabled
+      block
+      rounded="lg"
+      append-icon="mdi-content-save"
+      @click="$router.push({ name: 'conditions' })"
+      >Сохранить в черновики
+    </v-btn>
   </v-container>
 </template>
 
 <script setup>
-import { sync } from 'vuex-pathify'
 import { onMounted } from 'vue'
-import { MainBtnHandle, BackBtnHandle } from '@/services/buttonHandle'
+import { sync } from 'vuex-pathify'
+import { BackBtnHandle, MainBtnHandle } from '@/services/buttonHandle'
 import { useRouter } from 'vue-router'
-import { useVuelidate } from '@vuelidate/core'
 import { required } from '@vuelidate/validators'
 const router = useRouter()
 let { newGiv } = sync('givs/*')
 
+import { useVuelidate } from '@vuelidate/core'
 onMounted(() => {
-  MainBtnHandle('Продолжить ➜', true)
+  MainBtnHandle('Продолжить ➜')
   if (router.options.history.state.back) {
     BackBtnHandle()
   }
 })
 
 const rules = {
-  name: { required },
-  description: { required }
+  ticket_price: { required },
+  users_count: { required }
 }
 
 const v$ = useVuelidate(rules, newGiv)
 
-// telegram handlers
 Telegram.WebApp.MainButton.onClick(function () {
   if (v$.value.$invalid) {
     v$.value.$touch()
@@ -95,11 +111,7 @@ Telegram.WebApp.MainButton.onClick(function () {
       message: 'Не все поля заполнены'
     })
   } else {
-    router.push({ name: 'conditions' })
+    router.push({ name: 'chaincode' })
   }
-  // Telegram.WebApp.showAlert('Main Button was clicked')
-})
-Telegram.WebApp.BackButton.onClick(function () {
-  router.go(-1)
 })
 </script>
