@@ -6,7 +6,12 @@
           <component :is="Component" />
         </Transition>
       </router-view>
-      <v-btn id="test ">test</v-btn>
+      <v-btn id="test" @click="$store.dispatch('app/tonConnect')">
+        connect
+      </v-btn>
+      <v-btn id="test" @click="$store.dispatch('app/tonTransaction')">
+        walletInfo
+      </v-btn>
       <!--      <pallete />-->
     </v-main>
   </v-app>

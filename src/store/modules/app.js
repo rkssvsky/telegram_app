@@ -1,27 +1,14 @@
 import { dispatch, make } from 'vuex-pathify'
-import { TonConnectUI } from '@tonconnect/ui'
+import {
+  modal,
+  currentWallet,
+  currentWalletInfo,
+  currentIsConnectedStatus,
+  tonConnectUI
+} from '@/services/tonConnect'
 
-const tonConnectUI = new TonConnectUI({
-  manifestUrl: 'https://giv.mrakovo.ru/tonconnect-manifest.json'
-})
+import { toUserFriendlyAddress } from '@tonconnect/sdk'
 
-tonConnectUI.uiOptions = {
-  language: 'ru'
-}
-
-const { modal } = tonConnectUI
-
-// Open and close the modal
-await modal.open()
-
-// Get the current modal state
-const currentState = modal.state
-
-// Subscribe and unsubscribe to modal state changes
-const unsubscribe = modal.onStateChange(state => {
-  /* ... */
-})
-unsubscribe()
 const state = () => ({
   links: [
     { title: 'Активные', value: 'active', icon: 'mdi-home-circle-outline' },
@@ -37,8 +24,17 @@ const actions = {
   init() {
     dispatch('user/fetch')
   },
-  tonConnect() {},
-  tonTransaction() {}
+  tonConnect() {
+    modal.open()
+  },
+  tonTransaction() {
+    console.log(currentWallet)
+    console.log(currentWalletInfo)
+    console.log(currentIsConnectedStatus)
+    console.log(
+      toUserFriendlyAddress(tonConnectUI.wallet.account.address, true)
+    )
+  }
 }
 
 const getters = {
