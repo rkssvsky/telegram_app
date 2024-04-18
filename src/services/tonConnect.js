@@ -1,6 +1,6 @@
 import { TonConnectUI } from '@tonconnect/ui'
-import { ref } from 'vue'
 import { toUserFriendlyAddress } from '@tonconnect/sdk'
+import { ref } from 'vue'
 
 const tonConnectUI = new TonConnectUI({
   manifestUrl: 'https://giv.mrakovo.ru/tonconnect-manifest.json',
@@ -11,21 +11,22 @@ tonConnectUI.uiOptions = {
   language: 'ru',
   twaReturnUrl: 'https://t.me/durov'
 }
+
 const { modal } = tonConnectUI
+let UserFriendlyAddress = ref(false)
 
-const currentWallet = ref(tonConnectUI.wallet)
-const currentWalletInfo = ref(tonConnectUI.walletInfo)
-const currentAccount = ref(tonConnectUI.account)
-const currentIsConnectedStatus = ref(tonConnectUI.connected)
+const unsubscribe = tonConnectUI.onStatusChange(walletAndwalletInfo => {
+  let isTestnet = walletAndwalletInfo.account.chain === '-3'
+  UserFriendlyAddress.value = toUserFriendlyAddress(
+    walletAndwalletInfo.account.address,
+    isTestnet
+  )
+  console.log(walletAndwalletInfo)
+})
 
-// const rawAddress = tonConnectUI.wallet.account.address // like '0:abcdef123456789...'
-// const userFriendlyAddress = toUserFriendlyAddress(rawAddress)
-
-export {
-  currentWalletInfo,
-  currentWallet,
-  currentAccount,
-  currentIsConnectedStatus,
-  modal,
-  tonConnectUI
+async function disconnect() {
+  await tonConnectUI.disconnect()
+  UserFriendlyAddress.value = false
 }
+
+export { UserFriendlyAddress, modal, disconnect }

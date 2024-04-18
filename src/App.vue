@@ -9,9 +9,14 @@
       <v-btn id="test" @click="$store.dispatch('app/tonConnect')">
         connect
       </v-btn>
+      <v-btn id="test" @click="$store.dispatch('app/tonDisconnect')">
+        disconnect
+      </v-btn>
       <v-btn id="test" @click="$store.dispatch('app/tonTransaction')">
         walletInfo
       </v-btn>
+      {{ UserFriendlyAddress }}
+      {{ userAddress }}
       <!--      <pallete />-->
     </v-main>
   </v-app>
@@ -19,10 +24,11 @@
 
 <script setup>
 import { get } from 'vuex-pathify'
+import { UserFriendlyAddress } from '@/services/tonConnect'
 
 import Pallete from '@/components/Pallete.vue'
 
-let { mobile } = get('app/*')
+let { mobile, userAddress } = get('app/*')
 </script>
 <style lang="scss">
 * {

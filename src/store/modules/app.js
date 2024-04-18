@@ -1,13 +1,5 @@
 import { dispatch, make } from 'vuex-pathify'
-import {
-  modal,
-  currentWallet,
-  currentWalletInfo,
-  currentIsConnectedStatus,
-  tonConnectUI
-} from '@/services/tonConnect'
-
-import { toUserFriendlyAddress } from '@tonconnect/sdk'
+import { modal, UserFriendlyAddress, disconnect } from '@/services/tonConnect'
 
 const state = () => ({
   links: [
@@ -27,19 +19,20 @@ const actions = {
   tonConnect() {
     modal.open()
   },
+  tonDisconnect() {
+    disconnect()
+  },
   tonTransaction() {
-    console.log(currentWallet)
-    console.log(currentWalletInfo)
-    console.log(currentIsConnectedStatus)
-    console.log(
-      toUserFriendlyAddress(tonConnectUI.wallet.account.address, true)
-    )
+    console.log(UserFriendlyAddress)
   }
 }
 
 const getters = {
   mobile() {
     return window.screen.width < 600
+  },
+  userAddress() {
+    return UserFriendlyAddress
   }
 }
 
