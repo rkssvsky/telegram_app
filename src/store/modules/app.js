@@ -24,6 +24,7 @@ const actions = {
   },
   tonTransaction() {
     console.log(UserFriendlyAddress)
+    alert(UserFriendlyAddress)
   }
 }
 
@@ -31,8 +32,9 @@ const getters = {
   mobile() {
     return window.screen.width < 600
   },
-  tgClient () {
-    return !window.Telegram.WebApp.themeParams
+  tgClient() {
+    const themeParams = window.Telegram.WebApp.themeParams
+    return !!Object.keys(themeParams).length
   },
   userAddress() {
     return UserFriendlyAddress

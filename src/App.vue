@@ -6,29 +6,13 @@
           <component :is="Component" />
         </Transition>
       </router-view>
-      <v-btn id="test" @click="$store.dispatch('app/tonConnect')">
-        connect
-      </v-btn>
-      <v-btn id="test" @click="$store.dispatch('app/tonDisconnect')">
-        disconnect
-      </v-btn>
-      <v-btn id="test" @click="$store.dispatch('app/tonTransaction')">
-        walletInfo
-      </v-btn>
-      {{ UserFriendlyAddress }}
-      {{ userAddress }}
-      <!--      <pallete />-->
+      <develop-info />
     </v-main>
   </v-app>
 </template>
 
 <script setup>
-import { get } from 'vuex-pathify'
-import { UserFriendlyAddress } from '@/services/tonConnect'
-
-import Pallete from '@/components/Pallete.vue'
-
-let { mobile, userAddress } = get('app/*')
+import DevelopInfo from '@/components/DevelopInfo.vue'
 </script>
 <style lang="scss">
 * {

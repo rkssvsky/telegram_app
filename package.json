@@ -29,6 +29,7 @@
     "webfontloader": "^1.0.0"
   },
   "devDependencies": {
+    "@openproduct/web-sdk": "^0.23.0",
     "@tonconnect/sdk": "^3.0.0",
     "@tonconnect/ui": "^2.0.0",
     "@vitejs/plugin-vue": "^3.0.3",
